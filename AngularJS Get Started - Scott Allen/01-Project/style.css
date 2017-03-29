@@ -1,0 +1,20 @@
+.avatar {
+  max-width: 150px;
+}
+
+.avatar-small {
+  max-width: 80px;
+}
+
+.contribList img{
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.contribList ul {
+  list-style: none;
+}
+
+.contribList a {
+  
+}

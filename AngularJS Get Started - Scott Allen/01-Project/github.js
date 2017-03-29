@@ -1,27 +1,44 @@
 /**
  * Created by Rich Hopkins on 3/29/2017.
  */
-(function () {
+(function(){
 
-  var github = function ($http) {
+  var github = function($http){
 
-    var getUser = function (username) {
+    var getUser = function(username){
       return $http.get("https://api.github.com/users/" + username)
-          .then(function (response) {
+          .then(function(response){
             return response.data;
           });
     };
 
-    var getRepos = function (user) {
+    var getRepos = function(user){
       return $http.get(user.repos_url)
-          .then(function (response) {
+          .then(function(response){
             return response.data;
+          });
+    };
+
+    var getRepoDetails = function(username, reponame){
+      var repo;
+      var repoUrl = "https://api.github.com/repos/" + username
+          + "/" + reponame;
+
+      return $http.get(repoUrl)
+          .then(function(response){
+            repo = response.data;
+            return $http.get(repoUrl + "/contributors");
+          })
+          .then(function(response) {
+            repo.contributors = response.data;
+            return repo;
           });
     };
 
     return {
-      getUser: getUser,
-      getRepos: getRepos
+      getUser       : getUser,
+      getRepos      : getRepos,
+      getRepoDetails: getRepoDetails
     };
   };
 

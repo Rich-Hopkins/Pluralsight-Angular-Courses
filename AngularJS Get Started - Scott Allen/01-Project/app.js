@@ -1,53 +1,25 @@
 /**
- * Created by Rich Hopkins on 3/28/2017.
+ * Created by Rich Hopkins on 3/29/2017.
  */
-(function () {
-  var app = angular.module("githubViewer", []);
+(function() {
 
-  var MainController = function ($scope, github, $interval, $log, $anchorScroll, $location) {
+  var app = angular.module("githubViewer", ["ngRoute"]);
 
-    var onUserComplete = function(data) {
-      $scope.user = data;
-      github.getRepos($scope.user).then(onRepos, onError);
-    };
+  app.config(function($routeProvider) {
+    $routeProvider
+        .when("/main", {
+          templateUrl: "main.html",
+          controller: "MainController"
+        })
+        .when("/user/:username", {
+          templateUrl: "user.html",
+          controller: "UserController"
+        })
+        .when("/repo/:username/:reponame", {
+          templateUrl: "repo.html",
+          controller: "RepoController"
+        })
+        .otherwise({redirectTo: "/main"});
+  });
 
-    var onRepos = function (data) {
-      $scope.repos = data;
-      $location.hash("userDetails");
-      $anchorScroll();
-    };
-
-    var onError = function (reason) {
-      $scope.error = "Could not fetch data.";
-    };
-
-    var decrementCountdown = function(){
-      $scope.countdown -= 1;
-      if($scope.countdown < 1) {
-        $scope.search($scope.username);
-      }
-    };
-
-    var countdownInterval = null;
-    var startCountdown = function() {
-      countdownInterval = $interval(decrementCountdown, 1000, $scope.countdown);
-    };
-
-    $scope.search = function (username) {
-      $log.info("Searching for " + username);
-      github.getUser(username).then(onUserComplete, onError);
-      if(countdownInterval) {
-        $interval.cancel(countdownInterval);
-        $scope.countdown = null;
-      }
-    };
-
-    $scope.username = "angular";
-    $scope.message = "GitHub Viewer";
-    $scope.repoSortOrder = "-stargazers_count";
-    $scope.countdown = 5;
-    startCountdown();
-  };
-
-  app.controller("MainController", MainController);
 }());
