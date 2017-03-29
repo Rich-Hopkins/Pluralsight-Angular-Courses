@@ -12,7 +12,7 @@
           .then(onRepos, onError);
     };
 
-    var onRepos = function(response){
+    var onRepos = function (response) {
       $scope.repos = response.data;
     };
 
@@ -27,6 +27,7 @@
 
     $scope.username = "angular";
     $scope.message = "GitHub Viewer";
+    $scope.repoSortOrder = "-stargazers_count";
   };
 
   app.controller("MainController", ["$scope", "$http", MainController]);
