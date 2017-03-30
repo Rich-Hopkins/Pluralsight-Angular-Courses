@@ -4,4 +4,4 @@
 **AngularJS: Get Started**  
 **Scott Allen**  
 _https://app.pluralsight.com/library/courses/angularjs-get-started/_  
-My work: http://www.richhopkins.me/coursework/githubviewerapp
+My work: http://www.richhopkins.me/coursework/githubviewer
