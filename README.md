@@ -4,5 +4,9 @@
 **AngularJS: Get Started**  
 **Scott Allen**  
 _https://app.pluralsight.com/library/courses/angularjs-get-started/_  
-My work:  
-<a href="http://www.richhopkins.me/coursework/githubviewer" target="_blank">http://www.richhopkins.me/coursework/githubviewer</a>
+My work: http://www.richhopkins.me/coursework/githubviewer
+
+**Angular Fundamentals**  
+**Joe Eames and Jim Cooper**  
+_https://app.pluralsight.com/library/courses/angularjs-fundamentals/_  
+My work: _pending_
