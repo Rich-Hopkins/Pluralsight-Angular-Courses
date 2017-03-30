@@ -1,0 +1,26 @@
+.avatar {
+  max-width: 150px;
+  border-radius: 15%;
+}
+
+.avatar-small {
+  max-width: 80px;
+  border-radius: 15%;
+  padding: 8px;
+}
+
+
+.contribList ul {
+  list-style: none;
+}
+
+.contribList li  {
+  position: relative;
+}
+
+.contribList a {
+  position: absolute;
+  top: 50%;
+  transform:translate(0, -50%);
+  margin-left: 10px;
+}

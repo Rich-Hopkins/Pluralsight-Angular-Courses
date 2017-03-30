@@ -8,15 +8,15 @@
   app.config(function($routeProvider) {
     $routeProvider
         .when("/main", {
-          templateUrl: "main.html",
+          templateUrl: "views/main.html",
           controller: "MainController"
         })
         .when("/user/:username", {
-          templateUrl: "user.html",
+          templateUrl: "views/user.html",
           controller: "UserController"
         })
         .when("/repo/:username/:reponame", {
-          templateUrl: "repo.html",
+          templateUrl: "views/repo.html",
           controller: "RepoController"
         })
         .otherwise({redirectTo: "/main"});
