@@ -3,58 +3,20 @@
   <component name="ProjectCodeStyleSettingsManager">
     <option name="PER_PROJECT_SETTINGS">
       <value>
-        <option name="OTHER_INDENT_OPTIONS">
-          <value>
-            <option name="INDENT_SIZE" value="2" />
-            <option name="CONTINUATION_INDENT_SIZE" value="8" />
-            <option name="TAB_SIZE" value="2" />
-            <option name="USE_TAB_CHARACTER" value="false" />
-            <option name="SMART_TABS" value="false" />
-            <option name="LABEL_INDENT_SIZE" value="0" />
-            <option name="LABEL_INDENT_ABSOLUTE" value="false" />
-            <option name="USE_RELATIVE_INDENTS" value="false" />
-          </value>
-        </option>
         <option name="HTML_ALIGN_TEXT" value="true" />
         <option name="HTML_DO_NOT_INDENT_CHILDREN_OF" value="" />
-        <option name="HTML_ENFORCE_QUOTES" value="true" />
         <JSCodeStyleSettings>
-          <option name="ALIGN_OBJECT_PROPERTIES" value="2" />
           <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
         </JSCodeStyleSettings>
-        <codeStyleSettings language="CSS">
-          <indentOptions>
-            <option name="INDENT_SIZE" value="2" />
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="HAML">
-          <indentOptions>
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
         <codeStyleSettings language="HTML">
-          <option name="WRAP_ON_TYPING" value="1" />
           <indentOptions>
             <option name="INDENT_SIZE" value="2" />
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="JSON">
-          <indentOptions>
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="Jade">
-          <indentOptions>
-            <option name="INDENT_SIZE" value="2" />
+            <option name="CONTINUATION_INDENT_SIZE" value="2" />
             <option name="TAB_SIZE" value="2" />
           </indentOptions>
         </codeStyleSettings>
         <codeStyleSettings language="JavaScript">
-          <option name="ELSE_ON_NEW_LINE" value="true" />
-          <option name="CATCH_ON_NEW_LINE" value="true" />
-          <option name="FINALLY_ON_NEW_LINE" value="true" />
+          <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
           <option name="SPACE_BEFORE_IF_PARENTHESES" value="false" />
           <option name="SPACE_BEFORE_WHILE_PARENTHESES" value="false" />
           <option name="SPACE_BEFORE_FOR_PARENTHESES" value="false" />
@@ -70,48 +32,14 @@
           <option name="SPACE_BEFORE_TRY_LBRACE" value="false" />
           <option name="SPACE_BEFORE_CATCH_LBRACE" value="false" />
           <option name="SPACE_BEFORE_FINALLY_LBRACE" value="false" />
-          <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="true" />
-          <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
-          <option name="WRAP_COMMENTS" value="true" />
           <indentOptions>
             <option name="INDENT_SIZE" value="2" />
             <option name="CONTINUATION_INDENT_SIZE" value="2" />
             <option name="TAB_SIZE" value="2" />
           </indentOptions>
         </codeStyleSettings>
-        <codeStyleSettings language="LESS">
-          <indentOptions>
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="PostCSS">
-          <indentOptions>
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="SCSS">
-          <indentOptions>
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="Stylus">
-          <indentOptions>
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="TypeScript">
-          <indentOptions>
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="XML">
-          <indentOptions>
-            <option name="INDENT_SIZE" value="2" />
-            <option name="TAB_SIZE" value="2" />
-          </indentOptions>
-        </codeStyleSettings>
       </value>
     </option>
-    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default (2)" />
+    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
   </component>
 </project>
