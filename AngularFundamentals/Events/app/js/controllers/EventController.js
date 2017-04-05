@@ -8,9 +8,10 @@ eventsApp.controller('EventController',
 
     $scope.sortOrder = 'name';
     $scope.colorRed = {color: 'red'};
-    $scope.classBlue = "blue";
     $scope.boolValue = false;
-    $scope.event = eventData.event;
+    eventData.getEvent(function(event) {
+      $scope.event = event;
+    });
 
     $scope.upVoteSession = function (session) {
       session.upVoteCount++;
