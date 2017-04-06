@@ -1,68 +1,76 @@
 <!doctype html>
 <html lang="en" ng-app="eventsApp">
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Angular Event Registration</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/app.css"/>
-</head>
-<body ng-cloak>
-<div class="container">
-    <div class="navbar">
+  </head>
+  <body ng-cloak>
+    <div class="container">
+      <div class="navbar">
         <div class="navbar-inner">
-            <ul class="nav">
-                <li><a href="EventDetails.html">Event Details</a></li>
-                <li><a href="NewEvent.html">Create Event</a></li>
-            </ul>
+          <ul class="nav">
+            <li><a href="EventDetails.html">Event Details</a></li>
+            <li class="active"><a href="NewEvent.html">Create Event</a></li>
+            <li><a href="EditProfile.html">Edit Profile</a></li>
+          </ul>
         </div>
-    </div>
-    <style>input.ng-invalid.ng-dirty {background-color: pink}</style>
-    <div ng-controller="EditEventController" style="padding: 0 20px">
+      </div>
+      <style>input.ng-invalid.ng-dirty {
+        background-color: pink
+      }</style>
+      <div ng-controller="EditEventController" style="padding: 0 20px">
         <div class="container">
-            <h1>New Event</h1>
-            <hr/>
-            <form name="newEventForm">
-                <fieldset>
-                    <label for="eventName">Event Name: </label>
-                    <input id="eventName" type="text" required ng-model="event.name" placeholder="Name of your event"
-                           autofocus/>
-                    <label for="eventDate">Event Date: </label>
-                    <input id="eventDate" type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.date"
-                           placeholder="Format (mm/dd/yyyy)"/>
-                    <label for="eventTime">Event Time: </label>
-                    <input id="eventTime" type="text" ng-model="event.time" placeholder="Start and end times"/>
-                    <label for="eventLocation">Event Location: </label>
-                    <input id="eventLocation" type="text" ng-model="event.location.address"
-                           placeholder="Address of event"/>
-                    <br/>
-                    <input id="eventCity" type="text" ng-model="event.location.city" class="input-small"
-                           placeholder="City of event"/>
-                    <input id="eventState" type="text" ng-model="event.location.state" class="input-small"
-                           placeholder="State of event"/>
-                    <label for="eventImageUrl">Image: </label>
-                    <input id="eventImageUrl" type="text" ng-model="event.imageUrl" class="input-xlarge"
-                           placeholder="URL of the image"/>
-                </fieldset>
+          <h1>New Event</h1>
+          <hr/>
+          <form name="newEventForm">
+            <fieldset>
+              <label for="eventName">Event Name: </label>
+              <input id="eventName" type="text" required ng-model="event.name" placeholder="Name of your event"
+                     autofocus/>
+              <label for="eventDate">Event Date: </label>
+              <input id="eventDate" type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.date"
+                     placeholder="Format (mm/dd/yyyy)"/>
+              <label for="eventTime">Event Time: </label>
+              <input id="eventTime" type="text" ng-model="event.time" placeholder="Start and end times"/>
+              <label for="eventLocation">Event Location: </label>
+              <input id="eventLocation" type="text" ng-model="event.location.address"
+                     placeholder="Address of event"/>
+              <br/>
+              <input id="eventCity" type="text" ng-model="event.location.city" class="input-small"
+                     placeholder="City of event"/>
+              <input id="eventState" type="text" ng-model="event.location.state" class="input-small"
+                     placeholder="State of event"/>
+              <label for="eventImageUrl">Image: </label>
+              <input id="eventImageUrl" type="text" ng-model="event.imageUrl" class="input-xlarge"
+                     placeholder="URL of the image"/>
+            </fieldset>
 
-                <img ng-src="{{event.imageUrl}}" class="thumbnail"/>
-                <br/>
-                <br/>
+            <img ng-src="{{event.imageUrl}}" class="thumbnail"/>
+            <br/>
+            <br/>
 
-                <button type="submit" ng-click="saveEvent(event, newEventForm)" ng-disabled="newEventForm.$invalid" class="btn btn-primary">Save</button>
-                <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
+            <button type="submit" ng-click="saveEvent(event, newEventForm)" ng-disabled="newEventForm.$invalid"
+                    class="btn btn-primary">Save
+            </button>
+            <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
 
-            </form>
+          </form>
         </div>
+      </div>
     </div>
-</div>
 
-<script src="/lib/jquery.min.js"></script>
-<script src="/lib/underscore-1.4.4.min.js"></script>
-<script src="/lib/bootstrap.min.js"></script>
-<script src="/lib/angular/angular.js"></script>
-<script src="/lib/angular/angular-sanitize.js"></script>
-<script src="/js/app.js"></script>
-<script src="/js/controllers/EditEventController.js"></script>
-<script src="/js/filters.js"></script>
-</body>
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-resource.js"></script>
+    <script src="/lib/angular/angular-sanitize.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/EventController.js"></script>
+    <script src="/js/controllers/EditEventController.js"></script>
+    <script src="/js/services/EventData.js"></script>
+    <script src="/js/filters.js"></script>
+  </body>
 </html>
