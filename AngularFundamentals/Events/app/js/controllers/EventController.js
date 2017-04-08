@@ -10,11 +10,12 @@ eventsApp.controller('EventController',
     $scope.colorRed = {color: 'red'};
     $scope.boolValue = false;
     eventData.getEvent()
-             .success(function(event){
-               $scope.event = event
+             .$promise
+             .then(function(event){
+               $scope.event = event;
              })
-             .error(function(data, status, headers, config){
-               $log.warn(data, status, headers, config);
+             .catch(function(response){
+               $log(response);
              });
 
     $scope.upVoteSession = function(session){
