@@ -7,15 +7,13 @@ eventsApp.controller('EventController',
   function EventController($scope, eventData, $anchorScroll){
 
     $scope.sortorder = 'name';
-    $scope.colorRed = {color: 'red'};
-    $scope.boolValue = false;
     eventData.getEvent()
              .$promise
              .then(function(event){
                $scope.event = event;
              })
              .catch(function(response){
-               $log(response);
+               console.log(response);
              });
 
     $scope.upVoteSession = function(session){
@@ -24,9 +22,5 @@ eventsApp.controller('EventController',
 
     $scope.downVoteSession = function(session){
       session.upVoteCount--;
-    }
-
-    $scope.scrollToSession = function(){
-      $anchorScroll();
     }
   });

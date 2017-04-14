@@ -12,4 +12,15 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
                              templateUrl: 'templates/EventList.html',
                              controller: 'EventListController'
                            });
+                         $routeProvider.when('/event/:eventId',
+                           {
+                             templateUrl: 'templates/EventDetails.html',
+                             controller: 'EventController'
+                           });
+                         $routeProvider.when('/editProfile',
+                           {
+                             templateUrl: 'templates/EditProfile.html',
+                             controller: 'EditProfileController'
+                           });
+                         $routeProvider.otherwise({redirectTo:'/events'});
                        });
