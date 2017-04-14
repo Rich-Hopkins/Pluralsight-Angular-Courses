@@ -7,6 +7,11 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
                              templateUrl: 'templates/NewEvent.html',
                              controller: 'EditEventController'
                            });
+                         $routeProvider.when('/editProfile',
+                           {
+                             templateUrl: 'templates/EditProfile.html',
+                             controller: 'EditProfileController'
+                           });
                          $routeProvider.when('/events',
                            {
                              templateUrl: 'templates/EventList.html',
@@ -15,12 +20,13 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
                          $routeProvider.when('/event/:eventId',
                            {
                              templateUrl: 'templates/EventDetails.html',
-                             controller: 'EventController'
+                             controller: 'EventController',
+                             resolve:{
+                               event: function($route, eventData){
+                                 return eventData.getEvent($route.current.pathParams.eventId).$promise;
+                               }
+                             }
                            });
-                         $routeProvider.when('/editProfile',
-                           {
-                             templateUrl: 'templates/EditProfile.html',
-                             controller: 'EditProfileController'
-                           });
+
                          $routeProvider.otherwise({redirectTo:'/events'});
                        });
