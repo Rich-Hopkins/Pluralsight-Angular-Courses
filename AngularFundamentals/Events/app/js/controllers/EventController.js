@@ -6,7 +6,7 @@
 eventsApp.controller('EventController',
   function EventController($scope, eventData, $anchorScroll){
 
-    $scope.sortOrder = 'name';
+    $scope.sortorder = 'name';
     $scope.colorRed = {color: 'red'};
     $scope.boolValue = false;
     eventData.getEvent()

@@ -3,8 +3,8 @@
   <hr/>
   <hr/>
   <ul class="thumbnails">
-    <li ng-repeat="event in events:orderBy:sortorder" class="span5">
-      <div class="well hoverwell">
+    <li ng-repeat="event in events|orderBy:sortorder" class="span5">
+      <div class="well hover-well">
         <div class="row">
           <h2 class="span6">{{event.name}}</h2>
         </div>

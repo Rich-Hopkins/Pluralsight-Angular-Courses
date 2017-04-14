@@ -57,7 +57,7 @@
         </select>
 
         <ul class="thumbnails">
-          <li class="span11" ng-repeat="session in event.sessions | orderBy: sortOrder | filter:query" id="session{{session.id}}">
+          <li class="span11" ng-repeat="session in event.sessions | orderBy: sortorder | filter:query" id="session{{session.id}}">
             <div class="row session">
               <div class="span0 well votingWidget">
                 <div class="votingButton" ng-click="upVoteSession(session)">
