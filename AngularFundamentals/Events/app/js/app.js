@@ -1,7 +1,7 @@
 'use strict';
 
 var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRoute'])
-                       .config(function($routeProvider){
+                       .config(function($routeProvider, $locationProvider){
                          $routeProvider.when('/newEvent',
                            {
                              templateUrl: 'templates/NewEvent.html',
@@ -15,7 +15,12 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
                          $routeProvider.when('/events',
                            {
                              templateUrl: 'templates/EventList.html',
-                             controller: 'EventListController'
+                             controller: 'EventListController',
+                             resolve: {
+                               events: function($route, eventData){
+                                 return eventData.getAllEvents().$promise;
+                               }
+                             }
                            });
                          $routeProvider.when('/event/:eventId',
                            {
@@ -29,4 +34,5 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
                            });
 
                          $routeProvider.otherwise({redirectTo:'/events'});
+                         $locationProvider.html5Mode(true);
                        });
