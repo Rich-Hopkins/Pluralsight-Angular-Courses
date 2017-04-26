@@ -11,4 +11,4 @@ _https://app.pluralsight.com/library/courses/angularjs-get-started/_
 **Joe Eames and Jim Cooper**  
 _https://app.pluralsight.com/library/courses/angularjs-fundamentals/_  
 **My repo:** https://github.com/Rich-Hopkins/Pluralsight-Angular-Courses/tree/master/AngularFundamentals  
-**Web:** _pending_
+**Web:** http://events.richhopkins.me
