@@ -5,10 +5,10 @@
 **Scott Allen**  
 _https://app.pluralsight.com/library/courses/angularjs-get-started/_  
 **My repo:** https://github.com/Rich-Hopkins/Pluralsight-Angular-Courses/tree/master/AngularJS-GetStarted  
-**Web:** http://www.richhopkins.me/coursework/githubviewer
+**Web:** http://www.richhopkins.me/githubviewer
 
 **Angular Fundamentals**  
 **Joe Eames and Jim Cooper**  
 _https://app.pluralsight.com/library/courses/angularjs-fundamentals/_  
 **My repo:** https://github.com/Rich-Hopkins/Pluralsight-Angular-Courses/tree/master/AngularFundamentals  
-**Web:** _pending_
+**Web:** http://events.richhopkins.me
