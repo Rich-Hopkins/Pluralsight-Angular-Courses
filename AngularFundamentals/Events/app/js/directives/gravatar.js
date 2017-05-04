@@ -6,7 +6,7 @@
 eventsApp.directive('gravatar', function(gravatarUrlBuilder){
   return {
     restrict: 'E',
-    template: '<img />',
+    template: '<img class="centered rounded-rect" />',
     replace: true,
     link: function(scope, element, attrs, controller){
       attrs.$observe('email', function(newValue, oldValue){

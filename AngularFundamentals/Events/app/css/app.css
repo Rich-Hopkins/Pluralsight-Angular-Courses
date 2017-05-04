@@ -84,3 +84,12 @@ select, textarea {
 .thumbnail {
     max-width: 300px;
 }
+
+.centered {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.rounded-rect {
+    border-radius: 10px;
+}
