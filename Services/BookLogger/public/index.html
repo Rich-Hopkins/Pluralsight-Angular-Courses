@@ -13,12 +13,14 @@
     <h1>Hello {{books.appName}}!</h1>
 
     <div>
+        <h3>All Books</h3>
         <ul>
             <li ng-repeat="book in books.allBooks">{{book.title}} - {{book.author}}</li>
         </ul>
     </div>
 
     <div>
+        <h3>All Readers</h3>
         <ul>
             <li ng-repeat="reader in books.allReaders">{{reader.name}} - {{books.getBadge(reader.totalMinutesRead)}}</li>
         </ul>
