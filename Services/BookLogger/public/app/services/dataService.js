@@ -47,7 +47,7 @@
           deferred.reject('Error retrieving books');
         }
 
-      }, 1000);
+      }, 10);
 
       return deferred.promise;
     }
@@ -78,7 +78,7 @@
 
       $timeout(function(){
         deferred.resolve(readersArray);
-      }, 1500);
+      }, 15);
 
       return deferred.promise;
     }

@@ -1,10 +1,10 @@
 (function(){
 
   angular.module('app')
-    .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q', BooksController]);
+    .controller('BooksController', ['$q', 'books', 'dataService', 'badgeService', '$cookies', '$cookieStore', '$log', BooksController]);
 
 
-  function BooksController(books, dataService, logger, badgeService, $q){
+  function BooksController($q, books, dataService, badgeService, $cookies, $cookieStore, $log){
 
     var vm = this;
 
@@ -26,38 +26,11 @@
       console.log(reason);
     }
 
-    // dataService.getAllBooks()
-    //   .then(getBooksSuccess, null, getBooksNotification)
-    //   .catch(errorCallback)
-    //   .finally(getAllBooksComplete);
-    //
-    // function getBooksSuccess(books){
-    //   vm.allBooks = books;
-    // }
-    //
-    // function errorCallback(errorMsg){
-    //   console.log(errorMsg);
-    // }
-    //
-    // function getBooksNotification(notification) {
-    //   console.log(notification);
-    // }
-    //
-    // function getAllBooksComplete(){
-    //   console.log('GetAllBooks has completed.');
-    // }
-    //
-    // dataService.getAllReaders()
-    //   .then(getReadersSuccess)
-    //   .catch(errorCallback);
-    //
-    // function getReadersSuccess(readers) {
-    //   vm.allReaders = readers;
-    // }
-
     vm.getBadge = badgeService.retrieveBadge;
 
-    // logger.output('BooksController has been created.');
+    vm.favoriteBook = $cookies.favoriteBook;
+
+    vm.lastEdited = $cookieStore.get('lastEdited');
 
   }
 
