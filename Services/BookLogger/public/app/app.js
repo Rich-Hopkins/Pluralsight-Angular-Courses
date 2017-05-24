@@ -44,12 +44,7 @@
       .when('/EditBook/:bookID', {
         templateUrl: '/app/templates/editBook.html',
         controller: 'EditBookController',
-        controllerAs: 'bookEditor',
-        resolve: {
-          books: function(dataService){
-            return dataService.getAllBooks();
-          }
-        }
+        controllerAs: 'bookEditor'
       })
       .otherwise('/');
   }]);
