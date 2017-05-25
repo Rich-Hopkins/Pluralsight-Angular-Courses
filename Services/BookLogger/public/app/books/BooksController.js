@@ -1,16 +1,17 @@
 (function(){
 
   angular.module('app')
-    .controller('BooksController', ['$q', 'books', 'dataService', 'badgeService', '$cookies', '$cookieStore', '$log', '$route', BooksController]);
+    .controller('BooksController', ['$q', 'books', 'dataService', 'badgeService', '$cookies', '$cookieStore', '$log', '$route', 'BooksResource', BooksController]);
 
 
-  function BooksController($q, books, dataService, badgeService, $cookies, $cookieStore, $log, $route){
+  function BooksController($q, books, dataService, badgeService, $cookies, $cookieStore, $log, $route, BooksResource){
 
     var vm = this;
 
     vm.appName = books.appName;
 
     var booksPromise = dataService.getAllBooks();
+    // vm.allBooks = BooksResource.query();  //uses BooksResource
     var readersPromise = dataService.getAllReaders();
 
     $q.all([booksPromise, readersPromise])
