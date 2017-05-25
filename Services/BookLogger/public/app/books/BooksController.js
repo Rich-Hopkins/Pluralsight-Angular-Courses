@@ -1,10 +1,10 @@
 (function(){
 
   angular.module('app')
-    .controller('BooksController', ['$q', 'books', 'dataService', 'badgeService', '$cookies', '$cookieStore', '$log', BooksController]);
+    .controller('BooksController', ['$q', 'books', 'dataService', 'badgeService', '$cookies', '$cookieStore', '$log', '$route', BooksController]);
 
 
-  function BooksController($q, books, dataService, badgeService, $cookies, $cookieStore, $log){
+  function BooksController($q, books, dataService, badgeService, $cookies, $cookieStore, $log, $route){
 
     var vm = this;
 
@@ -24,6 +24,21 @@
 
     function getAllDataError(reason){
       console.log(reason);
+    }
+
+    vm.deleteBook = function(bookID) {
+      dataService.deleteBook(bookID)
+        .then(deleteBookSuccess)
+        .catch(deleteBookError);
+    };
+
+    function deleteBookSuccess(message) {
+      $log.info(message);
+      $route.reload();
+    }
+
+    function deleteBookError(errorMessage){
+      $log.error(errorMessage);
     }
 
     vm.getBadge = badgeService.retrieveBadge;

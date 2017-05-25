@@ -12,18 +12,6 @@
         "year_published": "1990"
     },
     {
-        "book_id": 3,
-        "title": "Invisible Man",
-        "author": "Ralph Ellison",
-        "year_published": "1952"
-    },
-    {
-        "book_id": 57,
-        "title": "Advanced OS X Programming",
-        "author": "Mark Dalrymple",
-        "year_published": "2010"
-    },
-    {
         "book_id": 59,
         "title": "The Cat and the Hat",
         "author": "Dr. Seuss",
@@ -34,5 +22,23 @@
         "title": "Green Eggs and Ham",
         "author": "Dr. Seuss",
         "year_published": "1960"
+    },
+    {
+        "book_id": 62,
+        "title": "Test-Driven Development by Example",
+        "author": "Kent Beck",
+        "year_published": "2003"
+    },
+    {
+        "book_id": 63,
+        "title": "Clean Code",
+        "author": "Robert Martin",
+        "year_published": "2008"
+    },
+    {
+        "book_id": 64,
+        "title": "Clean Coder",
+        "author": "Robert Martin",
+        "year_published": "2011"
     }
 ]
