@@ -27,6 +27,7 @@
     function getAllDataSuccess(dataArray) {
       vm.allBooks = dataArray[0];
       vm.allReaders = dataArray[1];
+      $log.jedi();
     }
 
     function getAllDataError(reason){

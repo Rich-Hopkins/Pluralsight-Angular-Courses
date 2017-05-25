@@ -25,10 +25,12 @@
     }
   }]);
 
-  app.config(['booksProvider', '$routeProvider', '$logProvider', 'constants', 'dataServiceProvider', function(booksProvider, $routeProvider, $logProvider, constants){
+  app.config(['booksProvider', '$routeProvider', '$logProvider', '$provide', 'constants', 'dataServiceProvider', function(booksProvider, $routeProvider, $logProvider, $provide, constants){
+
+    $provide.decorator('$log', ['$delegate', 'books', logDecorator]);
 
     booksProvider.setIncludeVersionInTitle(false);
-    $logProvider.debugEnabled(false);
+    $logProvider.debugEnabled(true);
 
     $routeProvider
       .when('/', {
@@ -49,9 +51,47 @@
       .otherwise('/');
   }]);
 
+  function logDecorator($delegate, books){
+
+    function log(message){
+      message += ' - ' + new Date() + ' (' + books.appName + ')';
+      $delegate.log(message);
+    }
+
+    function info(message){
+      $delegate.info(message);
+    }
+
+    function warn(message){
+      $delegate.warn(message);
+    }
+
+    function error(message){
+      $delegate.error(message);
+    }
+
+    function debug(message){
+      $delegate.debug(message);
+    }
+
+    function jedi(message){
+      message = 'The Force is strong in you, young jedi.';
+      $delegate.debug(message);
+    }
+
+    return {
+      log: log,
+      info: info,
+      warn: warn,
+      error: error,
+      debug: debug,
+      jedi: jedi
+    };
+  }
+
   app.run(['$rootScope', function($rootScope){
 
-    $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+    $rootScope.$on('$routeChangeSuccess', function(event, current, previous){
       // console.log('successfully changed routes')
     });
 
