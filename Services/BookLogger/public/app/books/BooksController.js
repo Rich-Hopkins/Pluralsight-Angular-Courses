@@ -10,8 +10,14 @@
 
     vm.appName = books.appName;
 
+    dataService.getUserSummary()
+      .then(getUserSummarySuccess);
+
+    function getUserSummarySuccess(summaryData){
+      vm.summaryData = summaryData;
+    }
+
     var booksPromise = dataService.getAllBooks();
-    // vm.allBooks = BooksResource.query();  //uses BooksResource
     var readersPromise = dataService.getAllReaders();
 
     $q.all([booksPromise, readersPromise])

@@ -4,17 +4,71 @@
 (function(){
 
   angular.module('app')
-    .factory('dataService', ['$q', '$timeout', '$http', 'constants', dataService]);
+    .factory('dataService', ['$q', '$timeout', '$http', 'constants', '$cacheFactory', dataService]);
 
-  function dataService($q, $timeout, $http, constants){
+  function dataService($q, $timeout, $http, constants, $cacheFactory){
     return {
       getAllBooks: getAllBooks,
       getAllReaders: getAllReaders,
       getBookById: getBookById,
       updateBook: updateBook,
       addBook: addBook,
-      deleteBook: deleteBook
+      deleteBook: deleteBook,
+      getUserSummary: getUserSummary
     };
+
+    function getUserSummary() {
+
+      var deferred = $q.defer();
+
+      var dataCache = $cacheFactory.get('bookLoggerCache');
+
+      if (!dataCache) {
+        dataCache = $cacheFactory('bookLoggerCache');
+      }
+
+      var summaryFromCache = dataCache.get('summary');
+
+      if (summaryFromCache) {
+        deferred.resolve(summaryFromCache);
+      }
+      else {
+        var booksPromise = getAllBooks();
+        var readersPromise = getAllReaders();
+
+        $q.all([booksPromise, readersPromise])
+          .then(function (bookLoggerData) {
+
+            var allBooks = bookLoggerData[0];
+            var allReaders = bookLoggerData[1];
+
+            var grandTotalMinutes = 0;
+
+            allReaders.forEach(function (currentReader, index, array) {
+              grandTotalMinutes += currentReader.totalMinutesRead;
+            });
+
+            var summaryData = {
+              bookCount: allBooks.length,
+              readerCount: allReaders.length,
+              grandTotalMinutes: grandTotalMinutes
+            };
+
+            dataCache.put('summary', summaryData);
+            deferred.resolve(summaryData);
+
+          });
+
+      }
+
+      return deferred.promise;
+
+    }
+
+    function deleteSummaryFromCache(){
+      var dataCache = $cacheFactory.get('bookLoggerCache');
+      dataCache.remove('summary');
+    }
 
     function getAllBooks(){
       return $http({
@@ -43,6 +97,7 @@
     }
 
     function updateBook(book){
+      deleteSummaryFromCache();
       return $http.put('api/books/' + book.book_id, book)
         .then(updateBookSuccess)
         .catch(updateBookError);
@@ -57,6 +112,7 @@
     }
 
     function addBook(newBook){
+      deleteSummaryFromCache();
       return $http.post('api/books',newBook)
         .then(addBookSuccess)
         .catch(addBookError);
@@ -71,6 +127,7 @@
     }
 
     function deleteBook(bookID){
+      deleteSummaryFromCache();
       return $http.delete('api/books/' + bookID)
         .then(deleteBookSuccess)
         .catch(deleteBookError);
