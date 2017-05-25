@@ -4,22 +4,22 @@
 (function(){
 
   angular.module('app')
-    .controller('EditBookController', ['$routeParams', 'books', '$cookies', '$cookieStore', 'dataService', '$log', '$location', 'BooksResource', EditBookController]);
+    .controller('EditBookController', ['$routeParams', 'books', '$cookies', '$cookieStore', 'dataService', '$log', '$location', 'BooksResource', 'currentUser', EditBookController]);
 
-  function EditBookController($routeParams, books, $cookies, $cookieStore, dataService, $log, $location, BooksResource){
+  function EditBookController($routeParams, books, $cookies, $cookieStore, dataService, $log, $location, BooksResource, currentUser){
 
     var vm = this;
 
-    // dataService.getBookById($routeParams.bookID)
-    //   .then(getBookSuccess)
-    //   .catch(getBookError);
+    dataService.getBookById($routeParams.bookID)
+      .then(getBookSuccess)
+      .catch(getBookError);
 
-    vm.currentBook = BooksResource.get({book_id: $routeParams.bookID});
+    // vm.currentBook = BooksResource.get({book_id: $routeParams.bookID});
     // This method uses the BooksResource instead of the dataService to get the book.
 
     function getBookSuccess(book){
       vm.currentBook = book;
-      $cookieStore.put('lastEdited', vm.currentBook);
+      currentUser.lastBookEdited = book;
     }
 
     function getBookError(reason){
